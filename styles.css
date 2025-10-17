@@ -1,0 +1,1212 @@
+/* CSS Variables for consistent theming */
+:root {
+  --primary-red: #DC143C;
+  --secondary-gold: #FFD700;
+  --accent-white: #FFFFFF;
+  --text-dark: #2C3E50;
+  --text-light: #7F8C8D;
+  --bg-light: #F8F9FA;
+  --shadow: 0 10px 30px rgba(0,0,0,0.1);
+  --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+  --transition: all 0.3s ease;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header.scrolled {
+  background: rgb(255, 255, 255);
+  box-shadow: var(--shadow);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  background: rgba(220, 20, 60, 0.1);
+  color: var(--primary-red);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh; /* Kept my specified height */
+  background: linear-gradient(rgba(221, 236, 10, 0.377), rgba(97, 11, 30, 0.7)), 
+              url('THE LEADERSHIP-JCCF_ABSU.jpg') center top / cover; /* Fixed background position */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--accent-white);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(220, 20, 60, 0.3) 100%);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 2;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  opacity: 0.95;
+  font-family: 'Lora', serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--secondary-gold);
+  color: var(--text-dark);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  border: 3px solid var(--secondary-gold);
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--secondary-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.cta-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--accent-white);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  border: 3px solid var(--accent-white);
+  margin-left: 1rem;
+}
+
+.cta-secondary:hover {
+  background: var(--accent-white);
+  color: var(--primary-red);
+  transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-red), var(--secondary-gold));
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Lora', serif;
+}
+
+/* Leadership Section */
+.leadership {
+  background: linear-gradient(135deg, var(--text-dark), #34495e);
+  color: var(--accent-white);
+}
+
+.leadership-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.leadership-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  border: 3px solid var(--secondary-gold);
+  height: 400px;
+}
+
+.leadership-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.leadership-info {
+  text-align: left;
+}
+
+.leadership-badge {
+  background: var(--secondary-gold);
+  color: var(--text-dark);
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.leadership-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--secondary-gold);
+}
+
+.leadership-session {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.leadership-led {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.leadership-president {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent-white);
+  margin-bottom: 1.5rem;
+}
+
+.leadership-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Session Topic Section */
+.session-topic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.topic-flyer {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid var(--secondary-gold);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.topic-flyer:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.topic-flyer h3 {
+  color: var(--secondary-gold);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.flyer-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.topic-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* About Section */
+.about {
+  background: var(--bg-light);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-highlight {
+  background: url(core_beliefs.jpg);
+  color: var(--accent-white);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.about-highlight h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-gold);
+}
+
+/* Fellowships Section */
+.fellowships-container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.fellowships-scroll {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-red) var(--bg-light);
+}
+
+.fellowships-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.fellowships-scroll::-webkit-scrollbar-track {
+  background: var(--bg-light);
+  border-radius: 10px;
+}
+
+.fellowships-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary-red);
+  border-radius: 10px;
+}
+
+.fellowships-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-gold);
+}
+
+.fellowship-card {
+  background: var(--accent-white);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-red);
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.fellowship-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Fellowship Logo Container - NEW IMPROVED STYLING */
+.fellowship-logo-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 3px solid var(--secondary-gold);
+  background: var(--accent-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.fellowship-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: var(--transition);
+}
+
+.fellowship-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Keep the original fellowship-icon for text-based icons */
+.fellowship-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary-red), var(--secondary-gold));
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--accent-white);
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.fellowship-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.fellowship-description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Social Media Icons (Unified across sections) */
+.social-links, .fellowship-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--accent-white);
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.social-icon.facebook {
+  background: #1877F2;
+}
+.social-icon.instagram {
+  background: #E1306C;
+}
+.social-icon.youtube {
+  background: #ff0000;
+}
+.social-icon.tiktok {
+  background: #270d2c;
+}
+
+.social-icon.facebook:hover {
+  background: #145db2;
+}
+
+.social-icon.whatsapp {
+  background: #25D366;
+}
+
+.social-icon.whatsapp:hover {
+  background: #1da851;
+}
+
+.social-icon.website {
+  background: #6c757d;
+}
+
+.social-icon.website:hover {
+  background: #5a6268;
+}
+
+.social-icon.instagram {
+  background: #E4405F;
+}
+
+.social-icon.instagram:hover {
+  background: #c13548;
+}
+
+.social-icon.twitter {
+  background: #1DA1F2;
+}
+
+.social-icon.twitter:hover {
+  background: #1681c2;
+}
+
+.social-icon.youtube {
+  background: #FF0000;
+}
+
+.social-icon.youtube:hover {
+  background: #cc0000;
+}
+
+/* Scripture Section */
+.scripture {
+  background: linear-gradient(135deg, var(--primary-red), #B91C3C);
+  color: var(--accent-white);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.scripture-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.scripture-verse {
+  font-size: 1.5rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.scripture-verse.active {
+  opacity: 1;
+}
+
+.scripture-reference {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--secondary-gold);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.scripture-reference.active {
+  opacity: 1;
+}
+
+/* Events Section - FIXED */
+.events {
+  background: var(--bg-light);
+}
+
+.events-carousel-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.event-slide-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 400%; /* Updated to accommodate 4 slides */
+}
+
+.event-slide {
+  flex: 0 0 25%; /* Each slide takes 25% of the container (4 slides) */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  background: var(--accent-white);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  min-height: 350px; /* Adjusted for better initial display, will be overridden by media queries */
+  opacity: 1;
+  visibility: hidden;
+  transition: var(--transition);
+
+}
+
+.event-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-image-container {
+  flex: 1;
+  max-width: 400px;
+  /* Added for vertical stacking on smaller screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover; /* Ensure image covers its container */
+}
+
+.event-details {
+  flex: 2;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-title-large {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-red);
+}
+
+.event-description-large {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.event-meta-item {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.carousel-nav:hover {
+  background: var(--accent-white);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+  left: 10px;
+}
+
+.carousel-nav.next {
+  right: 10px;
+}
+
+/* Contact Section */
+.contact {
+  background: var(--text-dark);
+  color: var(--accent-white);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info h3 {
+  color: var(--secondary-gold);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-white);
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-gold);
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-white);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--secondary-gold);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  background: var(--secondary-gold);
+  color: var(--text-dark);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.submit-button:hover {
+  background: #E6C200;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+  background: #1A1A1A;
+  color: var(--accent-white);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .leadership-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 900px) { /* Hamburger menu breakpoint */
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95); /* Ensure background is visible */
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateY(-100%);
+    transition: var(--transition);
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cta-secondary {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .leadership-container,
+  .about-content,
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .leadership-image {
+    height: 500px; /* Adjusted for larger mobile display */
+  }
+
+  .leadership-title {
+    font-size: 2rem;
+  }
+
+  .fellowships-scroll {
+    padding: 1rem;
+  }
+
+  .fellowship-card {
+    min-width: 250px;
+  }
+
+  .fellowship-logo-container,
+  .fellowship-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 780px) { /* Event card layout change */
+  .event-slide {
+    flex-direction: column; /* Stack image and details vertically */
+    align-items: center;
+    text-align: center;
+    flex: 100% 100% 100%; /* Each slide takes full width */ /*HERE*/
+    min-height: auto; /* Allow height to adjust to content */
+    padding: 1.5rem; /* Slightly reduced padding for smaller screens */
+  }
+
+  .event-image-container {
+    max-width: 500%; /* Constrain image width in vertical layout */
+    margin-bottom: 1.5rem; /* Space between image and text */
+  }
+
+  .event-image-container img {
+    width: 100%; /* Ensure image scales within its container */
+    height: auto;
+  }
+
+  .event-details {
+    min-width: unset; /* Remove fixed min-width */
+    width: 100%; /* Take full width */
+  }
+
+  .event-title-large {
+    font-size: 1.6rem; /* Adjust font size for smaller screens */
+  }
+
+  .event-description-large {
+    font-size: 0.95rem;
+  }
+
+  .event-meta {
+    justify-content: center; /* Center meta items when stacked */
+  }
+
+  .carousel-nav {
+    display: flex; /* Show navigation arrows even when stacked vertically */
+  }
+
+  .leadership-image {
+    height: 450px;
+  }
+}
+
+/* Further granular adjustments for smaller screens (50px intervals) */
+@media (max-width: 750px) {
+  .event-title-large {
+    font-size: 1.5rem;
+  }
+  .event-description-large {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .event-title-large {
+    font-size: 1.4rem;
+  }
+  .event-description-large {
+    font-size: 0.85rem;
+  }
+  .event-meta-item {
+    font-size: 0.9rem;
+  }
+  .leadership-image {
+    height: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .event-title-large {
+    font-size: 1.3rem;
+  }
+  .event-description-large {
+    font-size: 0.8rem;
+  }
+  .leadership-image {
+    height: 380px;
+  }
+}
+
+@media (max-width: 600px) {
+  .event-slide {
+    padding: 1rem; /* Further reduce padding */
+  }
+  .event-image-container {
+    max-width: 90%; /* Allow image to take more width */
+  }
+  .event-title-large {
+    font-size: 1.2rem;
+  }
+  .event-description-large {
+    font-size: 0.75rem;
+  }
+  .leadership-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 550px) {
+  .event-title-large {
+    font-size: 1.1rem;
+  }
+  .event-description-large {
+    font-size: 0.7rem;
+  }
+  .event-meta-item {
+    font-size: 0.8rem;
+  }
+  .leadership-image {
+    height: 320px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .section {
+    padding: 3rem 0;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .leadership-image {
+    height: 300px;
+  }
+  .event-title-large {
+    font-size: 1rem;
+  }
+  .event-description-large {
+    font-size: 0.65rem;
+  }
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .fellowship-logo-container,
+  .fellowship-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 450px) {
+  .event-slide {
+    padding: 0.8rem;
+  }
+  .event-image-container {
+    max-width: 100%; /* Image takes full width of card */
+  }
+  .event-title-large {
+    font-size: 0.95rem;
+  }
+  .event-description-large {
+    font-size: 0.6rem;
+  }
+  .leadership-image {
+    height: 280px;
+  }
+}
+
+@media (max-width: 400px) {
+  .event-title-large {
+    font-size: 0.9rem;
+  }
+  .event-description-large {
+    font-size: 0.55rem;
+  }
+  .event-meta-item {
+    font-size: 0.7rem;
+  }
+  .leadership-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 350px) {
+  .event-slide {
+    padding: 0.6rem;
+  }
+  .event-title-large {
+    font-size: 0.85rem;
+  }
+  .event-description-large {
+    font-size: 0.5rem;
+  }
+  .leadership-image {
+    height: 220px;
+  }
+}
+
+@media (max-width: 300px) {
+  .event-title-large {
+    font-size: 0.8rem;
+  }
+  .event-description-large {
+    font-size: 0.45rem;
+  }
+  .event-meta-item {
+    font-size: 0.65rem;
+  }
+  .leadership-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 250px) {
+  .event-slide {
+    padding: 0.5rem;
+  }
+  .event-title-large {
+    font-size: 0.75rem;
+  }
+  .event-description-large {
+    font-size: 0.4rem;
+  }
+  .event-meta-item {
+    font-size: 0.6rem;
+  }
+  .leadership-image {
+    height: 180px;
+  }
+}
+
+

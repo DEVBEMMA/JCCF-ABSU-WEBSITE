@@ -1,3 +1,6 @@
+// Testing Environment - JS 
+/* Updated JS code here */
+
 // Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
@@ -219,11 +222,162 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// GIVING MODAL FUNCTIONALITY
 
+/* ADD THIS TO YOUR JAVASCRIPT FILE */
 
+// Scripture data for rotation
+const givingScriptures = [
+  {
+    text: "For God loves a cheerful giver.",
+    reference: "2 Corinthians 9:7",
+  },
+  {
+    text: "It is more blessed to give than to receive.",
+    reference: "Acts 20:35",
+  },
+  {
+    text: "Whoever is generous to the poor lends to the Lord, and he will repay him for his deed.",
+    reference: "Proverbs 19:17",
+  },
+  {
+    text: "No one has ever become poor by giving.",
+    reference: "Anne Frank",
+  },
+  {
+    text: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate.",
+    reference: "Ralph Waldo Emerson",
+  },
+  {
+    text: "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",
+    reference: "Galatians 6:9",
+  },
+]
 
+let currentScriptureIndex = 0
+let projectScriptureInterval
+let bankingScriptureInterval
+let selectedProject = "Musical Equipment Acquisition"
 
+// Open Giving Modal
+function openGivingModal() {
+  const modal = document.getElementById("givingModal")
+  modal.classList.add("active")
+  startScriptureRotation()
+  document.body.style.overflow = "hidden"
+}
 
+// Close Giving Modal
+function closeGivingModal() {
+  const modal = document.getElementById("givingModal")
+  modal.classList.remove("active")
+  stopScriptureRotation()
+  document.body.style.overflow = "auto"
+}
 
+// Switch between tabs
+function switchGivingTab(tabName) {
+  // Hide all tabs
+  const tabs = document.querySelectorAll(".giving-tab-content")
+  tabs.forEach((tab) => tab.classList.remove("active"))
 
+  // Remove active class from all buttons
+  const buttons = document.querySelectorAll(".giving-tab-btn")
+  buttons.forEach((btn) => btn.classList.remove("active"))
 
+  // Show selected tab
+  const selectedTab = document.getElementById(tabName + "-tab")
+  if (selectedTab) {
+    selectedTab.classList.add("active")
+  }
+
+  // Add active class to clicked button
+  event.target.classList.add("active")
+}
+
+// Select project and switch to banking tab
+function selectProjectAndSwitch(projectName) {
+  selectedProject = projectName
+  document.getElementById("selectedProjectName").textContent = projectName
+  switchGivingTab("banking")
+}
+
+// Start scripture rotation
+function startScriptureRotation() {
+  // Rotate scriptures in projects tab
+  updateProjectScripture()
+  projectScriptureInterval = setInterval(updateProjectScripture, 4000)
+
+  // Rotate scriptures in banking tab
+  updateBankingScripture()
+  bankingScriptureInterval = setInterval(updateBankingScripture, 4000)
+}
+
+// Stop scripture rotation
+function stopScriptureRotation() {
+  clearInterval(projectScriptureInterval)
+  clearInterval(bankingScriptureInterval)
+}
+
+// Update project scripture display
+function updateProjectScripture() {
+  const scripture = givingScriptures[currentScriptureIndex]
+  document.getElementById("projectScripture").textContent = `"${scripture.text}"`
+  document.getElementById("projectScriptureRef").textContent = scripture.reference
+  currentScriptureIndex = (currentScriptureIndex + 1) % givingScriptures.length
+}
+
+// Update banking scripture display
+function updateBankingScripture() {
+  const randomIndex = Math.floor(Math.random() * givingScriptures.length)
+  const scripture = givingScriptures[randomIndex]
+  document.getElementById("bankingScripture").textContent = `"${scripture.text}"`
+  document.getElementById("bankingScriptureRef").textContent = scripture.reference
+}
+
+// Handle giving form submission
+function handleGivingSubmit(event) {
+  event.preventDefault()
+
+  const giverName = document.getElementById("giverName").value
+  const giverEmail = document.getElementById("giverEmail").value
+  const giverPhone = document.getElementById("giverPhone").value
+  const giverAmount = document.getElementById("giverAmount").value
+
+  console.log("[v0] Giving Form Submitted:", {
+    name: giverName,
+    email: giverEmail,
+    phone: giverPhone,
+    amount: giverAmount,
+    project: selectedProject,
+  })
+
+  // Show success message
+  alert(
+    `Thank you, ${giverName}! Your generous donation of ${giverAmount} for ${selectedProject} will be recorded upon confirmation. We appreciate you and God bless you greatly.`,
+  )
+
+  // Reset form
+  event.target.reset()
+  closeGivingModal()
+}
+
+// Close modal when clicking outside
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("givingModal")
+
+  if (modal) {
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeGivingModal()
+      }
+    })
+  }
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeGivingModal()
+    }
+  })
+})

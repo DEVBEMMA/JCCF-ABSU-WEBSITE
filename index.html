@@ -1,3 +1,4 @@
+<!-- ORIGINAL -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,22 +18,23 @@
 <body>
     <!-- Header -->
     <header class="header" id="header">
-        <nav class="nav-container">
-            <div class="logo-container">
-                <img src="JCCF_LOGO no-bg.png" alt="JCCF Logo" class="logo">
-                <span class="logo-text">JCCF ABSU</span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#leadership" class="nav-link">Leadership</a></li>
-                <li><a href="#fellowships" class="nav-link">Fellowships</a></li>
-                <li><a href="#events" class="nav-link">Events</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
-        </nav>
-    </header>
+    <nav class="nav-container">
+        <div class="logo-container">
+            <img src="JCCF_LOGO no-bg.png" alt="JCCF Logo" class="logo">
+            <span class="logo-text">JCCF ABSU</span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#leadership" class="nav-link">Leadership</a></li>
+            <li><a href="#fellowships" class="nav-link">Fellowships</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><button class="give-btn" onclick="openGivingModal()"><i class="fas fa-heart"></i> Give & Bless</button></li>
+        </ul>
+        <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
+    </nav>
+</header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -565,23 +567,7 @@
                             </div>
                         </div>
                     </div>
-                    Event 4: Prayer Quake (Duplicate) 
-                    <div class="event-slide">
-                        <div class="event-image-container">
-                            <img src="THE LEADERSHIP-JCCF_ABSU.jpg" alt="Prayer Quake Event">
-                        </div>
-                        <div class="event-details">
-                            <h2 class="event-title-large">PRAYER QUAKE!</h2>
-                            <p class="event-description-large">
-                                Join our gathering of Prayer designed as a structure to aid you with spiritual empowerment, strengthen your faith and prepare you for daily work of the Lord.
-                            </p>
-                            <div class="event-meta">
-                                <div class="event-meta-item"><span>📅 Thursdays</span></div>
-                                <div class="event-meta-item"><span>🕐 04:30 PM</span></div>
-                                <div class="event-meta-item"><span>📍 Environmental Car Park</span></div>
-                            </div>
-                        </div>
-                    </div> -->
+                    -->
                 </div>
                 <button class="carousel-nav next" onclick="changeEvent(1)">❯</button>
             </div>
@@ -640,7 +626,9 @@
                         </a>
                         <a href="https://jccfabsu.netlify.app" class="social-icon website" aria-label="JCCF ABSU Website" target="_blank">
                             <i class="fas fa-globe"></i>
-                        </a>
+                        </a></BR><button class="open-giving-modal-btn" onclick="openGivingModal()">
+  Give & Support Our Mission
+</button>
                     </div>
                 </div>
                 <form class="contact-form fade-in" id="contactForm">
@@ -672,16 +660,7 @@
             <div class="social-links">
                 <a href="https://www.facebook.com/profile.php?id=100064573423926" class="social-icon facebook" aria-label="JCCF ABSU Facebook" target="_blank">
                     <i class="fab fa-facebook-f"></i>
-                <!-- </a>
-                <a href="https://instagram.com/jccfabsu" class="social-icon instagram" aria-label="JCCF ABSU Instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a> -->
-                <!-- <a href="https://twitter.com/jccfabsu" class="social-icon twitter" aria-label="JCCF ABSU Twitter" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a> -->
-                <!-- <a href="https://youtube.com/jccfabsu" class="social-icon youtube" aria-label="JCCF ABSU YouTube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a> -->
+               
                 <a href="https://whatsapp.com/channel/0029VaeEWqAJkK756CHkYE0W" class="social-icon whatsapp" aria-label="JCCF ABSU WhatsApp Channel" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 <!-- <a href="https://wa.me/1234567893" class="social-icon whatsapp" aria-label="JCCF ABSU WhatsApp" target="_blank">
@@ -695,6 +674,152 @@
             <p>That We May Be One....</p>
         </div>
     </footer>
+
+
+    <!-- Giving Modal -->
+<div id="givingModal" class="giving-modal-overlay">
+  <div class="giving-modal-container">
+    <!-- Modal Header -->
+    <div class="giving-modal-header">
+      <div class="giving-modal-header-content">
+        <h2 class="giving-modal-title">
+          <span class="giving-icon">💝</span> Give & Support
+        </h2>
+      </div>
+      <button class="giving-modal-close" onclick="closeGivingModal()">&times;</button>
+    </div>
+
+    <!-- Modal Tabs -->
+    <div class="giving-modal-tabs">
+      <button class="giving-tab-btn active" onclick="switchGivingTab('projects')">
+        Projects
+      </button>
+      <button class="giving-tab-btn" onclick="switchGivingTab('banking')">
+        Banking
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="giving-modal-content">
+      <!-- Projects Tab -->
+      <div id="projects-tab" class="giving-tab-content active">
+        <!-- Scripture Carousel -->
+        <div class="scripture-carousel-container">
+          <div class="scripture-display">
+            <p class="scripture-text" id="projectScripture"></p>
+            <p class="scripture-reference" id="projectScriptureRef"></p>
+          </div>
+        </div>
+
+        <!-- Projects List -->
+        <div class="projects-list">
+          <!-- Major Project: Musical Equipment -->
+          <div class="project-card major-project">
+            <div class="project-badge">Major Project</div>
+            <div class="project-flyer">
+              <img src="Equipment.png" alt="Musical Equipment Acquisition" class="flyer-image">
+            </div>
+            <h3 class="project-title">Musical Equipment Acquisition</h3>
+            <p class="project-description">
+              Acquiring quality musical instruments and sound equipment to enhance our worship experience and reach more students through music ministry.
+            </p>
+            <button class="give-btn" onclick="selectProjectAndSwitch('Musical Equipment Acquisition')">
+              Give Now
+            </button>
+          </div>
+
+          <!-- Community Outreach Project -->
+          <div class="project-card">
+            <h3 class="project-title">Community Outreach</h3>
+            <p class="project-description">
+              Reaching out to our community of students and believers in need with love, care, and the gospel message.
+            </p>
+            <button class="give-btn" onclick="selectProjectAndSwitch('Community Outreach')">
+              Give Now
+            </button>
+          </div>
+
+          <!-- Upcoming Events Project -->
+          <div class="project-card">
+            <h3 class="project-title">Upcoming Events & Programs</h3>
+            <p class="project-description">
+              Supporting our campus events, conferences, and spiritual development programs that strengthen our fellowship and reach.
+            </p>
+            <button class="give-btn" onclick="selectProjectAndSwitch('Upcoming Events & Programs')">
+              Give Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banking Tab -->
+      <div id="banking-tab" class="giving-tab-content">
+        <!-- Scripture Section in Banking Tab -->
+        <div class="banking-scripture-section">
+          <p class="scripture-text-small" id="bankingScripture"></p>
+          <p class="scripture-reference-small" id="bankingScriptureRef"></p>
+        </div>
+
+        <!-- Selected Project Display -->
+        <div class="selected-project-display">
+          <p class="selected-label">Selected Project:</p>
+          <p class="selected-project-name" id="selectedProjectName">Musical Equipment Acquisition</p>
+        </div>
+
+        <!-- Banking Details Form -->
+        <form class="banking-form" onsubmit="handleGivingSubmit(event)">
+          <div class="form-group">
+            <label for="giverName">Full Name</label>
+            <input type="text" id="giverName" name="giverName" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="giverEmail">Email Address</label>
+            <input type="email" id="giverEmail" name="giverEmail" required placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="giverPhone">Phone Number</label>
+            <input type="tel" id="giverPhone" name="giverPhone" placeholder="+234 (optional)">
+          </div>
+
+          <div class="form-group">
+            <label for="giverAmount">Amount to Give</label>
+            <input type="number" id="giverAmount" name="giverAmount" required placeholder="Enter amount" min="1">
+          </div>
+
+          <!-- Bank Details Section -->
+          <div class="bank-details-section">
+            <h4 class="bank-details-title">Bank Transfer Details</h4>
+            
+            <div class="bank-info">
+              <div class="bank-info-item">
+                <span class="bank-label">Bank Name:</span>
+                <span class="bank-value">First Bank</span>
+              </div>
+              <div class="bank-info-item">
+                <span class="bank-label">Account Name:</span>
+                <span class="bank-value">Joint Christian Campus Fellowship ABSU</span>
+              </div>
+              <div class="bank-info-item">
+                <span class="bank-label">Account Number:</span>
+                <span class="bank-value account-number">3018840202</span>
+              </div>
+            </div>
+
+            <p class="bank-instruction">
+              Please transfer your donation to the account details above. <br> Note: Every contribution, no matter the amount, is a blessing to our ministry. Thank you for your generosity and support!
+            </p>
+          </div>
+
+          <button type="submit" class="submit-btn">Confirm Donation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 
 <!-- FURTHER PUSH TO GITHUB AND REDEPLOYMENT. 
     git add .
